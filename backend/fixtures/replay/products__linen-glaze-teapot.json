@@ -1,0 +1,21 @@
+{
+  "mode": "live",
+  "model": "claude-sonnet-5-5",
+  "calls": [
+    {
+      "field": "title",
+      "target": "",
+      "text": "Stoneware Teapot with Strainer | Mossgrove Clayworks",
+      "accepted": true,
+      "reasons": []
+    }
+  ],
+  "latency_ms": 6033,
+  "input_tokens": 4204,
+  "output_tokens": 369,
+  "cost_usd": 0.010029,
+  "turns": 3,
+  "retries": 0,
+  "error": "",
+  "path": "/products/linen-glaze-teapot"
+}

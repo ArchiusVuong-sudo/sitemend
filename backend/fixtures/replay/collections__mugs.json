@@ -1,0 +1,21 @@
+{
+  "mode": "live",
+  "model": "claude-sonnet-5-5",
+  "calls": [
+    {
+      "field": "meta_description",
+      "target": "",
+      "text": "Handmade mugs from Mossgrove Clayworks: stoneware mugs thrown on the wheel and dipped in our house glazes. Browse the speckled stoneware mug.",
+      "accepted": true,
+      "reasons": []
+    }
+  ],
+  "latency_ms": 4981,
+  "input_tokens": 3947,
+  "output_tokens": 166,
+  "cost_usd": 0.01041,
+  "turns": 2,
+  "retries": 0,
+  "error": "",
+  "path": "/collections/mugs"
+}

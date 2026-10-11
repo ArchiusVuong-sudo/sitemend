@@ -1,0 +1,21 @@
+{
+  "mode": "live",
+  "model": "claude-sonnet-5-5",
+  "calls": [
+    {
+      "field": "meta_description",
+      "target": "",
+      "text": "A moss green planter with a drainage hole and matching saucer. The 15 cm glazed pot fits most ferns and small palms. $48.00.",
+      "accepted": true,
+      "reasons": []
+    }
+  ],
+  "latency_ms": 5077,
+  "input_tokens": 4082,
+  "output_tokens": 295,
+  "cost_usd": 0.0088922,
+  "turns": 3,
+  "retries": 0,
+  "error": "",
+  "path": "/products/moss-glaze-planter"
+}

@@ -1,0 +1,5 @@
+{
+  "model": "claude-sonnet-5-5",
+  "recorded_at": "2026-10-11T07:19:15+00:00",
+  "note": "Model sessions recorded from a live run by manage.py record_fixtures. Replay sends the same text through the same checks."
+}

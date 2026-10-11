@@ -1,0 +1,37 @@
+{
+  "mode": "live",
+  "model": "claude-sonnet-5-5",
+  "calls": [
+    {
+      "field": "alt",
+      "target": "/static/img/fern-repot.jpg",
+      "text": "A fern being repotted into a moss glaze planter with a saucer",
+      "accepted": true,
+      "reasons": []
+    },
+    {
+      "field": "meta_description",
+      "target": "",
+      "text": "How to repot a fern: move up one size, water the day before and keep it out of direct sun for a week. Plus the best pot for ferns.",
+      "accepted": false,
+      "reasons": [
+        "Nothing made up: Remove claims not on the page: best"
+      ]
+    },
+    {
+      "field": "meta_description",
+      "target": "",
+      "text": "How to repot a fern: move up one size, water the day before and keep it out of direct sun for a week. A moss glaze planter suits most ferns.",
+      "accepted": true,
+      "reasons": []
+    }
+  ],
+  "latency_ms": 6076,
+  "input_tokens": 6849,
+  "output_tokens": 427,
+  "cost_usd": 0.0121942,
+  "turns": 4,
+  "retries": 0,
+  "error": "",
+  "path": "/journal/repotting-a-fern"
+}

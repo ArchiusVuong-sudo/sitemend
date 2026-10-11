@@ -1,0 +1,21 @@
+{
+  "mode": "live",
+  "model": "claude-sonnet-5-5",
+  "calls": [
+    {
+      "field": "title",
+      "target": "",
+      "text": "Stoneware Tableware for Daily Use | Mossgrove Clayworks",
+      "accepted": true,
+      "reasons": []
+    }
+  ],
+  "latency_ms": 5151,
+  "input_tokens": 4042,
+  "output_tokens": 301,
+  "cost_usd": 0.0088796,
+  "turns": 3,
+  "retries": 0,
+  "error": "",
+  "path": "/collections/tableware"
+}

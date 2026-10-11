@@ -1,0 +1,35 @@
+{
+  "mode": "live",
+  "model": "claude-sonnet-5-5",
+  "calls": [
+    {
+      "field": "alt",
+      "target": "/static/img/herb-pots.jpg",
+      "text": "Terracotta herb pots lined up on a kitchen windowsill",
+      "accepted": true,
+      "reasons": []
+    },
+    {
+      "field": "alt",
+      "target": "/static/img/planter-row.jpg",
+      "text": "Moss glaze planters shown in a row in three sizes",
+      "accepted": true,
+      "reasons": []
+    },
+    {
+      "field": "meta_description",
+      "target": "",
+      "text": "Glazed planters with drainage holes and matching saucers, sized for ferns, herbs and trailing plants. Moss glaze in three sizes.",
+      "accepted": true,
+      "reasons": []
+    }
+  ],
+  "latency_ms": 5802,
+  "input_tokens": 4585,
+  "output_tokens": 413,
+  "cost_usd": 0.0150976,
+  "turns": 4,
+  "retries": 0,
+  "error": "",
+  "path": "/collections/planters"
+}

@@ -1,0 +1,35 @@
+{
+  "mode": "live",
+  "model": "claude-sonnet-5-5",
+  "calls": [
+    {
+      "field": "alt",
+      "target": "/static/img/speckled-mug.jpg",
+      "text": "Wide speckled stoneware mug with a soft oatmeal glaze",
+      "accepted": true,
+      "reasons": []
+    },
+    {
+      "field": "meta_description",
+      "target": "",
+      "text": "Speckled stoneware mug, made by hand with an oatmeal glaze. Holds 350 ml and keeps coffee warm. $34.00 and in stock.",
+      "accepted": true,
+      "reasons": []
+    },
+    {
+      "field": "title",
+      "target": "",
+      "text": "Speckled Stoneware Mug, Handmade | Mossgrove Clayworks",
+      "accepted": true,
+      "reasons": []
+    }
+  ],
+  "latency_ms": 5225,
+  "input_tokens": 4723,
+  "output_tokens": 419,
+  "cost_usd": 0.012122399999999998,
+  "turns": 4,
+  "retries": 0,
+  "error": "",
+  "path": "/products/speckled-stoneware-mug"
+}
