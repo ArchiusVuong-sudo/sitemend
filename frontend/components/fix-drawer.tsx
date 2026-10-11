@@ -143,7 +143,11 @@ export function FixDrawer({ fixId, onClose }: { fixId: number; onClose: () => vo
   return (
     <div className="fixed inset-0 z-40 flex justify-end">
       <button aria-label="Close" className="absolute inset-0 bg-slate-900/20" onClick={onClose} />
-      <aside className="relative flex h-full w-[600px] flex-col overflow-hidden border-l border-slate-200 bg-white shadow-2xl">
+      <aside
+        role="dialog"
+        aria-modal="true"
+        {...(f ? { "aria-labelledby": "fix-drawer-title" } : { "aria-label": "Fix details" })}
+        className="relative flex h-full w-[600px] flex-col overflow-hidden border-l border-slate-200 bg-white shadow-2xl">
         {fix.error && (
           <div className="p-6">
             <ErrorNote error={fix.error} />
@@ -162,7 +166,7 @@ export function FixDrawer({ fixId, onClose }: { fixId: number; onClose: () => vo
                 <div className="text-xs font-medium text-slate-500">
                   {CATEGORY_LABEL[f.category]} · {f.source === "model" ? "Written by the model" : "Rule fix"}
                 </div>
-                <h2 className="mt-0.5 text-lg font-semibold text-slate-900">{KIND_LABEL[f.kind] ?? f.kind}</h2>
+                <h2 id="fix-drawer-title" className="mt-0.5 text-lg font-semibold text-slate-900">{KIND_LABEL[f.kind] ?? f.kind}</h2>
                 <div className="mt-0.5 truncate font-mono text-xs text-slate-500">
                   {f.path}
                   {f.target && ` · ${f.target}`}

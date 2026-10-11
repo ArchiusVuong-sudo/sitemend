@@ -7,7 +7,7 @@ import { ComparePanel } from "@/components/compare";
 import { useJobs, useSite } from "@/components/jobs";
 import { Button, Card, cx, Empty, ErrorNote, Icon, PageHeader, Pill, Skeleton } from "@/components/ui";
 import { api } from "@/lib/api";
-import { CATEGORY_LABEL, CATEGORY_TONE, KIND_LABEL, STATUS_LABEL, STATUS_TONE, timeAgo } from "@/lib/labels";
+import { afterSummary, CATEGORY_LABEL, CATEGORY_TONE, KIND_LABEL, STATUS_LABEL, STATUS_TONE, timeAgo } from "@/lib/labels";
 import type { Release } from "@/lib/types";
 
 const KIND_TONE: Record<Release["kind"], string> = {
@@ -82,7 +82,7 @@ export default function ReleasesPage() {
                           {KIND_LABEL[String(o.op.op)] ?? String(o.op.op)}
                         </span>
                         <span className="w-64 shrink-0 truncate font-mono text-xs text-slate-500">{o.path}</span>
-                        <span className="min-w-0 flex-1 truncate text-[13px] text-slate-700">{o.fix?.after.split("\n")[0]}</span>
+                        <span className="min-w-0 flex-1 truncate text-[13px] text-slate-700">{o.fix && afterSummary(o.fix.kind, o.fix.after)}</span>
                         {r.active && o.fix && (
                           <>
                             <Pill tone={STATUS_TONE[o.fix.status]}>{STATUS_LABEL[o.fix.status]}</Pill>

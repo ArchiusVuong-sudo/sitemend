@@ -9,6 +9,7 @@ import { useToast } from "@/components/toast";
 import { Button, Card, cx, Empty, ErrorNote, Icon, PageHeader, Pill, ProgressBar, Skeleton } from "@/components/ui";
 import { api } from "@/lib/api";
 import {
+  afterSummary,
   CATEGORY_HINT,
   CATEGORY_LABEL,
   CATEGORY_ORDER,
@@ -211,7 +212,7 @@ function FixRow({ fix, onOpen }: { fix: Fix; onOpen: () => void }) {
         </div>
         <div className="min-w-0 flex-1">
           <div className="truncate text-xs text-slate-400 line-through decoration-slate-300">{fix.before || "(none)"}</div>
-          <div className="truncate text-[13px] text-slate-900">{fix.after.split("\n")[0] || "(no text)"}</div>
+          <div className="truncate text-[13px] text-slate-900">{afterSummary(fix.kind, fix.after) || "(no text)"}</div>
         </div>
         <div className="flex w-60 shrink-0 items-center justify-end gap-2 whitespace-nowrap text-xs">
           {fix.confidence === "low" && <Pill tone="bg-amber-50 text-amber-800 ring-amber-200">Low confidence</Pill>}

@@ -196,9 +196,9 @@ def issues_view(request: Request) -> Response:
     run = latest_scan(site, "edge" if target == "edge" else "origin")
     if run is None:
         return Response({"run": None, "issues": []})
-    fixes = {(f.path, f.target): f for f in Fix.objects.filter(site=site)}
+    # Keyed by (path, rule, target): one page can hold several fixes with an empty target (title, meta, ...).
     by_rule: dict[tuple[str, str, str], Fix] = {}
-    for f in fixes.values():
+    for f in Fix.objects.filter(site=site):
         for rule in f.rules:
             by_rule[(f.path, rule, f.target)] = f
     rows = []

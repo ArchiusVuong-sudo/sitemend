@@ -137,3 +137,21 @@ def test_reset_clears_everything(api):
     body = api.post("/api/site/reset").json()
     assert body["latest_scan"] is None and body["active_release"] is None
     assert not Fix.objects.exists() and not Run.objects.exists()
+
+
+def test_every_issue_row_links_its_fix_and_shows_verified(api):
+    # Several fixes on one page share an empty target (title, meta, social, product data): each must still show.
+    api.post("/api/scan")
+    api.post("/api/generate")
+    issues = api.get("/api/issues").json()["issues"]
+    assert len(issues) == 27
+    assert [(i["path"], i["rule"]) for i in issues if i["fix"] is None] == []
+    assert len({i["fix"]["id"] for i in issues}) == 27
+    for category in ("technical", "rich", "titles", "meta", "alt"):
+        assert api.post("/api/fixes/bulk-approve", {"category": category}, format="json").status_code == 200
+    for fix in Fix.objects.filter(status=Fix.Status.PENDING):
+        assert api.post(f"/api/fixes/{fix.pk}/approve").status_code == 200
+    assert api.post("/api/deploy").status_code == 202
+    assert api.post("/api/verify").status_code == 202
+    rows = api.get("/api/issues").json()["issues"]
+    assert {i["fix"]["status"] for i in rows} == {"verified"}

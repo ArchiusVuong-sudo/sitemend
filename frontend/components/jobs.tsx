@@ -81,7 +81,9 @@ export function JobsProvider({ children }: { children: ReactNode }) {
       }
     },
     enabled: watchId !== null,
-    retry: false,
+    // One dropped poll (a dev proxy reset, a 5xx) is retried; a 4xx is a real answer.
+    retry: (count, err) => count < 3 && !(err instanceof ApiError && err.status < 500),
+    retryDelay: 500,
     refetchInterval: (q) => {
       if (q.state.error || q.state.data === null) return false;
       const status = q.state.data?.status;

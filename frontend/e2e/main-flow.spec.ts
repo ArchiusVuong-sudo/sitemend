@@ -49,10 +49,12 @@ test("scan, fix, approve, deploy, verify, revert and roll back", async ({ page, 
   await page.getByRole("button", { name: "Generate fixes" }).first().click();
   await toast(page, "Release v1 went out on autopilot");
   await expect(page.getByText("Writing", { exact: true })).toHaveCount(0);
+  await expect(page.getByText(/^Product: .+, \d+(\.\d+)? USD/).first()).toBeVisible();
   await shot(page, "04-fixes");
 
   // A meta description with a rejected first attempt.
   await page.getByRole("button", { name: /Meta description.*repotting-a-fern/ }).click();
+  await expect(page.getByRole("dialog", { name: "Meta description" })).toBeVisible();
   await expect(page.getByText("Rejected").first()).toBeVisible();
   await expect(page.getByText(/claims not on the page: best/).first()).toBeVisible();
   await shot(page, "05-fix-drawer");
@@ -89,6 +91,9 @@ test("scan, fix, approve, deploy, verify, revert and roll back", async ({ page, 
   await toast(page, /Edge re-scan: \d+ fixes verified live/);
   await nav(page, "Overview").click();
   await expect(page.getByText("Live edge").first()).toBeVisible();
+  // Every issue row names its fix; only the low-confidence link removal still waits.
+  await expect(page.locator("tbody tr").getByText("No fix yet")).toHaveCount(0);
+  await expect(page.locator("tbody tr").getByText("Verified live", { exact: true })).toHaveCount(26);
   await shot(page, "07-overview-verified");
 
   // Revert one title (v3), then roll back to v1 (v4).
@@ -110,4 +115,11 @@ test("scan, fix, approve, deploy, verify, revert and roll back", async ({ page, 
   await shot(page, "09-runs");
 
   expect(errors).toEqual([]);
+});
+
+test("an unknown address shows the dashboard's own not-found page", async ({ page }) => {
+  await page.goto("/no-such-page");
+  await expect(page.getByRole("heading", { name: "Page not found" })).toBeVisible();
+  await page.getByRole("link", { name: "Back to Overview" }).click();
+  await expect(page).toHaveURL(/\/$/);
 });

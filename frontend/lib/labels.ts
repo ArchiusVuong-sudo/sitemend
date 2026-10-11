@@ -123,3 +123,25 @@ export function clock(iso: string | null): string {
   if (!iso) return "";
   return new Date(iso).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
 }
+
+/** One line for a fix's new text in a list row. Product data is JSON, so its first line would be just "{". */
+export function afterSummary(kind: string, after: string): string {
+  if (kind === "product_jsonld") {
+    try {
+      const data = JSON.parse(after) as {
+        name?: string;
+        offers?: { price?: string; priceCurrency?: string; availability?: string };
+        [key: string]: unknown;
+      };
+      const parts = [data.name, data.offers?.price && `${data.offers.price} ${data.offers.priceCurrency ?? ""}`.trim()];
+      const stock = data.offers?.availability?.split("/").pop();
+      if (stock) parts.push(stock === "InStock" ? "in stock" : stock === "OutOfStock" ? "out of stock" : stock);
+      const extras = ["sku", "image", "description"].filter((k) => k in data);
+      if (extras.length) parts.push(`with ${extras.join(", ")}`);
+      return `Product: ${parts.filter(Boolean).join(", ")}`;
+    } catch {
+      // Not JSON (for example "(name or price not found on the page)"): fall through to the first line.
+    }
+  }
+  return after.split("\n")[0];
+}
