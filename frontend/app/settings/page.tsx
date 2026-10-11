@@ -163,7 +163,12 @@ function SettingsForm({ site }: { site: SiteInfo }) {
           <h2 className="text-sm font-semibold text-slate-900">Reset the demo</h2>
           <p className="text-xs text-slate-500">Clears scans, fixes, releases and traces, and restores the default settings.</p>
         </div>
-        <Button variant="danger" disabled={busy} loading={reset.isPending} onClick={() => reset.mutate()}>
+        <Button
+          variant="danger"
+          loading={reset.isPending}
+          title={busy ? "Also clears the job that is running" : undefined}
+          onClick={() => reset.mutate()}
+        >
           Reset demo
         </Button>
       </Card>

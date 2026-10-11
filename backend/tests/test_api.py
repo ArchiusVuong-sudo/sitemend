@@ -124,6 +124,13 @@ def test_runs_include_spans_and_baselines(api):
     assert baselines["fetch page"]["p95_ms"] >= baselines["fetch page"]["p50_ms"]
 
 
+def test_reset_clears_a_stuck_run(api, site):
+    Run.objects.create(site=site, kind=Run.Kind.GENERATE, status=Run.Status.RUNNING)
+    assert api.post("/api/scan").status_code == 409
+    assert api.post("/api/site/reset").status_code == 200
+    assert api.post("/api/scan").status_code == 202
+
+
 def test_reset_clears_everything(api):
     api.post("/api/scan")
     api.post("/api/generate")

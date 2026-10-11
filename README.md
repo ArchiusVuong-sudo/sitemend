@@ -79,7 +79,7 @@ Open http://127.0.0.1:4124. All three processes log with a prefix and a readines
 | `SITEMEND_SESSION_TIMEOUT_S` | `180` | Timeout per session |
 | `SITEMEND_VAR_DIR` | `./var` | SQLite database and broker files |
 
-`make record` re-records the replay fixtures from a live run on a scratch database. `make reset` (or Settings, Reset demo) clears scans, fixes and releases.
+`make record` re-records the replay fixtures from a live run on a scratch database. A new recording has the model's new words, so a few tests that check the recorded run (for example that one attempt was rejected first) may need their expectations updated after it. `make reset` (or Settings, Reset demo) clears scans, fixes and releases.
 
 ## Tests
 

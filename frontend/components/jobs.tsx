@@ -71,9 +71,19 @@ export function JobsProvider({ children }: { children: ReactNode }) {
 
   const run = useQuery({
     queryKey: ["run", watchId],
-    queryFn: () => api.run(watchId as number),
+    // A run deleted by a reset answers 404: treat it as gone instead of polling it forever.
+    queryFn: async () => {
+      try {
+        return await api.run(watchId as number);
+      } catch (err) {
+        if (err instanceof ApiError && err.status === 404) return null;
+        throw err;
+      }
+    },
     enabled: watchId !== null,
+    retry: false,
     refetchInterval: (q) => {
+      if (q.state.error || q.state.data === null) return false;
       const status = q.state.data?.status;
       return status === "done" || status === "failed" ? false : 500;
     },
@@ -110,6 +120,7 @@ export function JobsProvider({ children }: { children: ReactNode }) {
   );
 
   const active = current && (current.status === "queued" || current.status === "running") ? current : null;
-  const value = useMemo(() => ({ active, busy: active !== null || runId !== null, start }), [active, runId, start]);
+  const starting = runId !== null && run.data === undefined;
+  const value = useMemo(() => ({ active, busy: active !== null || starting, start }), [active, starting, start]);
   return <JobsContext.Provider value={value}>{children}</JobsContext.Provider>;
 }

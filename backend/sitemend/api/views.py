@@ -112,9 +112,8 @@ def policy_view(request: Request, category: str) -> Response:
 
 @api_view(["POST"])
 def reset_view(request: Request) -> Response:
+    """Always allowed, so a run left 'running' by a stopped worker can never lock the demo."""
     site = get_site()
-    if Run.objects.filter(site=site, status__in=ACTIVE).exists():
-        return _error("Wait for the running job to finish")
     reset(site)
     return Response(_site_payload())
 
