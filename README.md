@@ -17,7 +17,7 @@ Full video: https://github.com/ArchiusVuong-sudo/sitemend/releases/download/v0.1
 ## Architecture
 
 ```mermaid
-flowchart LR
+flowchart TB
     Browser[Browser] --> UI[Next.js dashboard]
     UI -->|Rewrites /api| API[Django REST API]
     API <--> DB[(SQLite in WAL mode)]
