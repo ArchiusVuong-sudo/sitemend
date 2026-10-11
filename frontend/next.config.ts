@@ -5,6 +5,8 @@ const backend = process.env.SITEMEND_API_URL ?? "http://127.0.0.1:14124";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Keep next dev from writing helper files into the repo.
+  agentRules: false,
   turbopack: {
     rules: {
       "*.css": {
