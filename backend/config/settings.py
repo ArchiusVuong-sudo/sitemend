@@ -59,13 +59,14 @@ REST_FRAMEWORK = {
 # Celery on the filesystem transport. Job state lives in the database, so
 # results are ignored and no result backend is configured.
 BROKER_DIR = VAR_DIR / "broker"
-for sub in ("in", "processed"):
+for sub in ("in", "processed", "control"):
     (BROKER_DIR / sub).mkdir(parents=True, exist_ok=True)
 CELERY_BROKER_URL = "filesystem://"
 CELERY_BROKER_TRANSPORT_OPTIONS = {
     "data_folder_in": str(BROKER_DIR / "in"),
     "data_folder_out": str(BROKER_DIR / "in"),
     "processed_folder": str(BROKER_DIR / "processed"),
+    "control_folder": str(BROKER_DIR / "control"),
     "store_processed": False,
     "polling_interval": 0.25,
 }

@@ -274,8 +274,10 @@ def reject(fix: Fix) -> Fix:
 
 
 def bulk_approve(site: Site, category: str) -> list[int]:
+    """Approves every passing fix in a category. Low-confidence fixes are left for one-by-one review."""
     ids = []
-    for fix in Fix.objects.filter(site=site, category=category, status=Fix.Status.PENDING):
+    for fix in Fix.objects.filter(site=site, category=category, status=Fix.Status.PENDING,
+                                  confidence=Fix.Confidence.HIGH):
         if fix.checks_passed:
             approve(fix)
             ids.append(fix.pk)
