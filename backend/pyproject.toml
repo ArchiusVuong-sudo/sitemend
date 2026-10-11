@@ -1,0 +1,30 @@
+[project]
+name = "sitemend-backend"
+version = "0.1.0"
+description = "Scans a site, proposes checked SEO fixes, ships approved ones through versioned edge releases and rolls them back."
+authors = [{ name = "Khanh Vuong Tuan" }]
+license = "MIT"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "celery>=5.6,<5.7",
+    "claude-agent-sdk>=0.2.165",
+    "django>=6.1,<6.2",
+    "djangorestframework>=3.18,<3.19",
+    "gunicorn>=26",
+    "httpx>=0.28",
+    "kombu>=5.6,<5.7",
+    "pydantic>=2.14",
+    "selectolax>=1.0,<1.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-django>=4.14.0",
+]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["live: calls the real model (opt in with LIVE=1)"]

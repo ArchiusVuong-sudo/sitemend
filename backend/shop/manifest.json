@@ -1,0 +1,141 @@
+{
+  "synthetic": true,
+  "note": "Issues planted on purpose in the synthetic shop. Scans must find exactly these.",
+  "issues": [
+    {
+      "path": "/",
+      "rule": "social_missing",
+      "key": ""
+    },
+    {
+      "path": "/",
+      "rule": "link_broken",
+      "key": "/products/speckled-stoneware-mugs"
+    },
+    {
+      "path": "/about",
+      "rule": "title_missing",
+      "key": ""
+    },
+    {
+      "path": "/about",
+      "rule": "social_missing",
+      "key": ""
+    },
+    {
+      "path": "/about",
+      "rule": "link_redirect",
+      "key": "/shop/mugs"
+    },
+    {
+      "path": "/collections/mugs",
+      "rule": "meta_duplicate",
+      "key": ""
+    },
+    {
+      "path": "/collections/mugs",
+      "rule": "h1_multiple",
+      "key": ""
+    },
+    {
+      "path": "/collections/planters",
+      "rule": "meta_short",
+      "key": ""
+    },
+    {
+      "path": "/collections/planters",
+      "rule": "img_alt_missing",
+      "key": "/static/img/planter-row.jpg"
+    },
+    {
+      "path": "/collections/planters",
+      "rule": "img_alt_missing",
+      "key": "/static/img/herb-pots.jpg"
+    },
+    {
+      "path": "/collections/tableware",
+      "rule": "title_duplicate",
+      "key": ""
+    },
+    {
+      "path": "/collections/tableware",
+      "rule": "canonical_missing",
+      "key": ""
+    },
+    {
+      "path": "/products/speckled-stoneware-mug",
+      "rule": "title_duplicate",
+      "key": ""
+    },
+    {
+      "path": "/products/speckled-stoneware-mug",
+      "rule": "meta_duplicate",
+      "key": ""
+    },
+    {
+      "path": "/products/speckled-stoneware-mug",
+      "rule": "img_alt_missing",
+      "key": "/static/img/speckled-mug.jpg"
+    },
+    {
+      "path": "/products/speckled-stoneware-mug",
+      "rule": "product_schema_missing",
+      "key": ""
+    },
+    {
+      "path": "/products/moss-glaze-planter",
+      "rule": "meta_missing",
+      "key": ""
+    },
+    {
+      "path": "/products/moss-glaze-planter",
+      "rule": "social_missing",
+      "key": ""
+    },
+    {
+      "path": "/products/moss-glaze-planter",
+      "rule": "product_schema_missing",
+      "key": ""
+    },
+    {
+      "path": "/products/linen-glaze-teapot",
+      "rule": "title_too_long",
+      "key": ""
+    },
+    {
+      "path": "/products/linen-glaze-teapot",
+      "rule": "product_schema_missing",
+      "key": ""
+    },
+    {
+      "path": "/products/terracotta-herb-pot",
+      "rule": "canonical_missing",
+      "key": ""
+    },
+    {
+      "path": "/journal/caring-for-glazed-ceramics",
+      "rule": "canonical_missing",
+      "key": ""
+    },
+    {
+      "path": "/journal/caring-for-glazed-ceramics",
+      "rule": "link_broken",
+      "key": "/journal/winter-glaze-workshop"
+    },
+    {
+      "path": "/journal/repotting-a-fern",
+      "rule": "meta_missing",
+      "key": ""
+    },
+    {
+      "path": "/journal/repotting-a-fern",
+      "rule": "img_alt_missing",
+      "key": "/static/img/fern-repot.jpg"
+    },
+    {
+      "path": "/journal/repotting-a-fern",
+      "rule": "social_missing",
+      "key": ""
+    }
+  ]
+}

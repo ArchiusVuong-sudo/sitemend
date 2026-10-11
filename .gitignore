@@ -1,0 +1,35 @@
+# dependencies
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+
+# env
+.env
+.env.*
+!.env.example
+
+# local data
+*.db
+*.sqlite*
+var/
+
+# build output
+.next/
+dist/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# test output
+test-results/
+playwright-report/
+coverage/
+.pytest_cache/
+
+# media
+*.mp4
+*.gif
+*.webm
+
+.DS_Store

@@ -1,0 +1,247 @@
+{
+  "synthetic": true,
+  "note": "Synthetic 28-day search performance, invented for the demo. Not real search data.",
+  "window_days": 28,
+  "pages": {
+    "/": {
+      "impressions": 9600,
+      "clicks": 384,
+      "ctr": 0.04,
+      "position": 3.1,
+      "queries": [
+        {
+          "query": "mossgrove clayworks",
+          "impressions": 4100
+        },
+        {
+          "query": "handmade ceramics shop",
+          "impressions": 3200
+        },
+        {
+          "query": "ceramic planters",
+          "impressions": 2300
+        }
+      ]
+    },
+    "/about": {
+      "impressions": 1200,
+      "clicks": 30,
+      "ctr": 0.025,
+      "position": 7.4,
+      "queries": [
+        {
+          "query": "pottery studio",
+          "impressions": 620
+        },
+        {
+          "query": "small batch stoneware studio",
+          "impressions": 380
+        },
+        {
+          "query": "handmade pottery makers",
+          "impressions": 200
+        }
+      ]
+    },
+    "/collections/mugs": {
+      "impressions": 7400,
+      "clicks": 133,
+      "ctr": 0.018,
+      "position": 6.5,
+      "queries": [
+        {
+          "query": "handmade mugs",
+          "impressions": 3900
+        },
+        {
+          "query": "stoneware mugs",
+          "impressions": 2600
+        },
+        {
+          "query": "ceramic coffee cups",
+          "impressions": 900
+        }
+      ]
+    },
+    "/collections/planters": {
+      "impressions": 6100,
+      "clicks": 79,
+      "ctr": 0.013,
+      "position": 8.2,
+      "queries": [
+        {
+          "query": "glazed planters",
+          "impressions": 3100
+        },
+        {
+          "query": "ceramic plant pots",
+          "impressions": 2200
+        },
+        {
+          "query": "planters with drainage",
+          "impressions": 800
+        }
+      ]
+    },
+    "/collections/tableware": {
+      "impressions": 3900,
+      "clicks": 47,
+      "ctr": 0.0121,
+      "position": 9.1,
+      "queries": [
+        {
+          "query": "stoneware tableware",
+          "impressions": 2100
+        },
+        {
+          "query": "handmade bowls and plates",
+          "impressions": 1300
+        },
+        {
+          "query": "ceramic dinnerware",
+          "impressions": 500
+        }
+      ]
+    },
+    "/products/speckled-stoneware-mug": {
+      "impressions": 18400,
+      "clicks": 92,
+      "ctr": 0.005,
+      "position": 5.8,
+      "queries": [
+        {
+          "query": "speckled stoneware mug",
+          "impressions": 9100
+        },
+        {
+          "query": "handmade ceramic mug",
+          "impressions": 5200
+        },
+        {
+          "query": "stoneware coffee mug",
+          "impressions": 4100
+        }
+      ]
+    },
+    "/products/moss-glaze-planter": {
+      "impressions": 5300,
+      "clicks": 106,
+      "ctr": 0.02,
+      "position": 6.9,
+      "queries": [
+        {
+          "query": "moss green planter",
+          "impressions": 2700
+        },
+        {
+          "query": "glazed planter with saucer",
+          "impressions": 1800
+        },
+        {
+          "query": "fern pot",
+          "impressions": 800
+        }
+      ]
+    },
+    "/products/hand-thrown-bowl-set": {
+      "impressions": 2800,
+      "clicks": 112,
+      "ctr": 0.04,
+      "position": 4.4,
+      "queries": [
+        {
+          "query": "hand thrown bowls",
+          "impressions": 1500
+        },
+        {
+          "query": "stoneware bowl set",
+          "impressions": 900
+        },
+        {
+          "query": "linen glaze bowls",
+          "impressions": 400
+        }
+      ]
+    },
+    "/products/linen-glaze-teapot": {
+      "impressions": 4100,
+      "clicks": 41,
+      "ctr": 0.01,
+      "position": 7.8,
+      "queries": [
+        {
+          "query": "stoneware teapot with strainer",
+          "impressions": 2300
+        },
+        {
+          "query": "handmade teapot",
+          "impressions": 1300
+        },
+        {
+          "query": "ceramic teapot",
+          "impressions": 500
+        }
+      ]
+    },
+    "/products/terracotta-herb-pot": {
+      "impressions": 3300,
+      "clicks": 99,
+      "ctr": 0.03,
+      "position": 5.2,
+      "queries": [
+        {
+          "query": "terracotta herb pot",
+          "impressions": 1900
+        },
+        {
+          "query": "windowsill herb planter",
+          "impressions": 1000
+        },
+        {
+          "query": "basil pot",
+          "impressions": 400
+        }
+      ]
+    },
+    "/journal/caring-for-glazed-ceramics": {
+      "impressions": 2200,
+      "clicks": 66,
+      "ctr": 0.03,
+      "position": 6.1,
+      "queries": [
+        {
+          "query": "how to care for glazed ceramics",
+          "impressions": 1200
+        },
+        {
+          "query": "stoneware care",
+          "impressions": 700
+        },
+        {
+          "query": "can glazed mugs crack",
+          "impressions": 300
+        }
+      ]
+    },
+    "/journal/repotting-a-fern": {
+      "impressions": 4700,
+      "clicks": 47,
+      "ctr": 0.01,
+      "position": 11.3,
+      "queries": [
+        {
+          "query": "how to repot a fern",
+          "impressions": 2600
+        },
+        {
+          "query": "fern repotting",
+          "impressions": 1500
+        },
+        {
+          "query": "best pot for ferns",
+          "impressions": 600
+        }
+      ]
+    }
+  }
+}
