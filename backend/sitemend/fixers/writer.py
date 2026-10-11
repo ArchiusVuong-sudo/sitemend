@@ -87,6 +87,7 @@ def write_page(run_id: int, path: str) -> SessionResult | None:
         )
         if result.error:
             s.set(error=result.error[:500])
+            s.fail(result.error)
     finish_writing(path, run_id, f"Model session failed: {result.error}" if result.error else "")
     if result.mode == "live" and getattr(settings, "SITEMEND_RECORD", False):
         record(path, result)

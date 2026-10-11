@@ -29,9 +29,14 @@ class OpenSpan:
     row: Span | None
     attrs: dict[str, Any] = field(default_factory=dict)
     retries: int = 0
+    failure: str = ""
 
     def set(self, **attrs: Any) -> None:
         self.attrs.update(attrs)
+
+    def fail(self, message: str) -> None:
+        """Marks the span as failed without raising (the caller handled the error)."""
+        self.failure = message
 
 
 @contextmanager
@@ -64,7 +69,8 @@ def span(name: str, kind: str = Span.Kind.STEP, label: str = "", **attrs: Any) -
     t0 = time.perf_counter()
     try:
         yield handle
-        row.status = "ok"
+        row.status = "error" if handle.failure else "ok"
+        row.error = handle.failure[:2000]
     except BaseException as exc:
         row.status = "error"
         row.error = "".join(traceback.format_exception_only(type(exc), exc)).strip()[:2000]

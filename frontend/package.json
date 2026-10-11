@@ -1,12 +1,17 @@
 {
-  "name": "frontend",
+  "name": "sitemend-dashboard",
   "version": "0.1.0",
   "private": true,
+  "description": "Dashboard for Sitemend: scans, checked fixes, edge releases and traces.",
+  "author": "Khanh Vuong Tuan",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "e2e": "playwright test"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.104.1",

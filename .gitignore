@@ -33,3 +33,4 @@ coverage/
 *.webm
 
 .DS_Store
+*.pem
