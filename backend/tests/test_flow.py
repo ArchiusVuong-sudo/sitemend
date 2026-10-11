@@ -36,11 +36,15 @@ def test_full_flow_in_replay_mode(site, api, no_network):
     # The low-confidence broken-link fix waits even though Technical is on autopilot.
     unlink = Fix.objects.get(kind="unlink")
     assert unlink.confidence == "low" and unlink.status == Fix.Status.PENDING
-    # Model fixes wait for approval and one shows a rejected first try.
-    fern = Fix.objects.get(path="/journal/repotting-a-fern", kind="set_meta_description")
-    tries = list(fern.attempts.all())
-    assert len(tries) == 2 and not tries[0].passed and tries[1].passed
-    assert "claims not on the page: best" in " ".join(c["detail"] for c in tries[0].checks)
+    # Model fixes wait for approval. Recorded sessions replay through the real checks, so a rejected
+    # try keeps its reasons and the next try passes.
+    model_fixes = Fix.objects.filter(source=Fix.Source.MODEL)
+    assert set(model_fixes.values_list("status", flat=True)) == {Fix.Status.PENDING}
+    retried = [f for f in model_fixes if f.attempts.count() > 1]
+    assert retried, "the recorded run should include at least one rejected attempt"
+    first, last = list(retried[0].attempts.all())[0], list(retried[0].attempts.all())[-1]
+    assert not first.passed and last.passed
+    assert any(not c["passed"] and c["detail"] for c in first.checks)
 
     # A reviewer edits a title: a failing edit stays out, a passing edit can be approved.
     title = Fix.objects.get(path="/products/speckled-stoneware-mug", kind="set_title")

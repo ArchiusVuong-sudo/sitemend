@@ -1,4 +1,7 @@
 # One command per job. Ports: the dashboard on PORT, Django on API_PORT, both on 127.0.0.1.
+# Settings come from the environment or an optional .env file (see .env.example).
+-include .env
+export
 PORT ?= 4124
 API_PORT ?= 14124
 HOST := 127.0.0.1
