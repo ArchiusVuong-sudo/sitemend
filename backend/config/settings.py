@@ -38,6 +38,8 @@ DATABASES = {
             "timeout": 30,
             "init_command": "PRAGMA journal_mode=WAL; PRAGMA synchronous=NORMAL;",
         },
+        # A real file for tests too, so threads share it the way the API and worker do.
+        "TEST": {"NAME": str(VAR_DIR / "test.sqlite3")},
     }
 }
 
@@ -91,3 +93,4 @@ LOGGING = {
     "root": {"handlers": ["console"], "level": "INFO"},
     "loggers": {"httpx": {"level": "WARNING"}},
 }
+SITEMEND_RECORD = os.environ.get("SITEMEND_RECORD", "0") == "1"
