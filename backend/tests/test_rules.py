@@ -93,7 +93,7 @@ def test_product_schema_only_on_product_pages():
     ("/products/a/?x=1#top", "/products/a"),
     ("https://mossgrove-clayworks.example/about", "/about"),
     ("https://elsewhere.example/about", None),
-    ("mailto:hi@x.example", None),
+    ("mailto:hello", None),
     ("#top", None),
     ("/static/img/a.jpg", None),
     ("//cdn.example/x", None),
