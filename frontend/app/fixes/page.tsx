@@ -213,7 +213,7 @@ function FixRow({ fix, onOpen }: { fix: Fix; onOpen: () => void }) {
           <div className="truncate text-xs text-slate-400 line-through decoration-slate-300">{fix.before || "(none)"}</div>
           <div className="truncate text-[13px] text-slate-900">{fix.after.split("\n")[0] || "(no text)"}</div>
         </div>
-        <div className="flex w-44 shrink-0 items-center justify-end gap-2 text-xs">
+        <div className="flex w-60 shrink-0 items-center justify-end gap-2 whitespace-nowrap text-xs">
           {fix.confidence === "low" && <Pill tone="bg-amber-50 text-amber-800 ring-amber-200">Low confidence</Pill>}
           {fix.checks.length > 0 && (
             <span className={cx("inline-flex items-center gap-1 tabular-nums", failed.length ? "text-rose-700" : "text-emerald-700")}>
